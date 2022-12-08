@@ -1,0 +1,27 @@
+<canvas width="600px" height="400px"></canvas>
+<script>
+    var canvas = document.querySelector("canvas");
+    var pencil = canvas.getContext("2d");
+    
+    pencil.fillStyle = "lightgrey";
+    pencil.fillRect(0, 0, 600, 400);
+
+    pencil.fillStyle = "darkgreen"
+    pencil.fillRect(0, 0, 200, 400);
+
+    pencil.fillStyle = "darkred";
+    pencil.fillRect(400, 0, 600, 400);
+
+    pencil.fillStyle = "orange";
+    pencil.beginPath();
+    pencil.moveTo(300, 200);
+    pencil.lineTo(200, 400);
+    pencil.lineTo(400, 400);
+    pencil.fill();
+
+    pencil.fillStyle = "orange";
+    pencil.beginPath()
+    pencil.arc(300, 200, 50, 0, 2*3.14);
+    pencil.fill();
+    
+</script>

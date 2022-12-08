@@ -1,0 +1,32 @@
+<canvas width="600" height="400"></canvas>
+<script>
+    var canvas = document.querySelector("canvas");
+    var pencil = canvas.getContext("2d");
+    pencil.fillStyle = "grey";
+    pencil.fillRect(0, 0, 600, 400);
+
+    function drawCircle(x, y, r){
+        pincel.fillStyle = "blue";
+        pincel.beginPath();
+        pincel.arc(x, y, r, 0, 2 * Math.PI);
+        pincel.fill();
+    }    
+
+    var x = 20;
+    var way = 1;
+    function frame(){
+        pencil.clearRect(0, 0, 600, 400);
+        
+        if(x > 580){
+            way = -1;
+        }
+        if(x < 20){
+            way = 1;
+        }
+
+        drawCircle(x, 20, 10);
+        x += way;
+    }
+
+    setInterval(frame, 20);
+</script>

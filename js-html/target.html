@@ -1,0 +1,68 @@
+<canvas width="800" height="600"></canvas>
+<script>
+    const CANVAS_WIDTH = 800;
+    const CANVAS_HEIGHT = 600;
+
+    var canvas = document.querySelector("canvas");
+    var pencil = canvas.getContext("2d");
+    pencil.fillStyle = "grey";
+    pencil.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+    var sizes = [15, 10, 5];
+    var radius;
+    var targetX, targetY;
+
+    function clearCanvas(){
+        pencil.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        pencil.fillStyle = "grey";
+        pencil.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    }
+
+    function drawCircle(x, y, r, color){
+        radius = r;
+        pencil.fillStyle = color;
+        pencil.beginPath();
+        pencil.arc(x, y, radius, 0, 2 * Math.PI);
+        pencil.fill();
+    }
+
+    function drawTargets(){
+        clearCanvas();
+
+        targetX = Math.round(Math.random() * CANVAS_WIDTH);
+        targetY = Math.round(Math.random() * CANVAS_HEIGHT);
+
+        var red = true;
+        for(var i = 0; i < sizes.length; i++){
+            if(red){
+                drawCircle(targetX, targetY, sizes[i], "red");
+                red = false;
+            }
+            else{
+                drawCircle(targetX, targetY, sizes[i], "white");
+                red = true;
+            }
+        }
+    }
+
+    function clickTest(event){
+        var eventX = event.pageX - canvas.offsetLeft;
+        var eventY = event.pageY - canvas.offsetTop;
+
+        var rangeX = (eventX >= targetX - radius &&
+                      eventX <= targetX + radius);
+
+        var rangeY = (eventY >= targetY - radius &&
+                      eventY <= targetY + radius);
+
+        if(rangeX && rangeY)
+            alert("you win!!");
+
+        
+    }
+    canvas.onclick = clickTest;
+    drawTargets();
+    setInterval(drawTargets, 2000);
+
+    
+</script>

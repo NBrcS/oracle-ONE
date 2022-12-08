@@ -1,0 +1,32 @@
+<canvas width="600" height="400"></canvas>
+<script>
+
+    function drawSquare(initial_x, initial_y, color){
+
+    var canvas = document.querySelector("canvas");
+    var pencil = canvas.getContext("2d");
+
+    pencil.fillStyle = color;
+    pencil.fillRect(initial_x, initial_y, 50, 50);
+
+    pencil.strokeStyle = "black";
+    pencil.strokeRect(initial_x, initial_y, 50, 50);
+    }
+
+    var color1_bool = false;
+    var color1 = "yellow", color2 = "purple";
+    
+    for(var x = 0; x < 600; x += 50){
+        for(var y = 0; y < 400; y += 50){
+            if(color1_bool){
+                drawSquare(x, y, color1);
+                color1_bool = false;
+            }
+            else{
+                drawSquare(x, y, color2);
+                color1_bool = true;
+            }
+            
+        }
+    }
+</script>

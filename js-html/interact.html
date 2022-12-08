@@ -1,0 +1,43 @@
+select a color <input type="color"> 
+
+<canvas width="600" height="400"></canvas>
+<script>
+    var canvas = document.querySelector("canvas");
+    var pencil = canvas.getContext("2d");
+    var radius = 10;
+    var draw;
+    
+    function drawCircle(event){
+        if(draw){
+            var selected_color = document.querySelector("input").value;
+            var x = event.pageX - canvas.offsetLeft;
+            var y = event.pageY - canvas.offsetTop;
+
+            if(event.shiftKey && radius < 40){
+                radius += 10;
+            }
+            if(event.altKey && radius > 10){
+                radius -= 5;
+            }
+
+            pencil.fillStyle = selected_color;
+            pencil.beginPath();
+            pencil.arc(x, y, radius, 0, 2*3.14);
+            pencil.fill();
+        }
+
+    }
+
+
+    canvas.onmousemove = drawCircle;
+    canvas.onmousedown = () =>{
+        draw = true;
+    }
+    canvas.onmouseup = () =>{
+        draw = false
+    }
+
+    pencil.fillStyle = "lightgrey";
+    pencil.fillRect(0, 0, 600, 400);
+
+</script>
