@@ -1,0 +1,58 @@
+body{
+    background-color: rgb(80, 33, 0);
+    color: white;
+}
+
+#banner{
+    width: 100%;
+    margin: 5px;
+}
+
+.principal{
+
+}
+
+h1.centralized-about{
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+
+.mission{
+    font-size: 20px;
+    text-align: center;
+}
+
+em strong{
+    color: darkgoldenrod;
+}
+
+h2{
+    text-align: center;
+}
+
+ul{
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    padding-right: 15%;
+}
+
+.beneficts{
+    background-color: rgb(107, 0, 0);
+    margin: 5px;
+    padding: 10px;
+    border-style: groove;
+    border-color: blanchedalmond;
+}
+
+
+.item{
+    font-style: italic;
+}
+
+#beneficts-img{
+    width: 50%;
+
+}
