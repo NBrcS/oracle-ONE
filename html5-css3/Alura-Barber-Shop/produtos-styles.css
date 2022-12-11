@@ -28,6 +28,11 @@ nav a{
     text-decoration: none;
 }
 
+nav a:hover{
+    color: rgb(151, 115, 23);
+    text-decoration: underline;
+}
+
 .produtos{
     position: relative;
     margin: 0 auto;
@@ -40,6 +45,23 @@ nav a{
     width: 30%;
     vertical-align: top;
     padding: 50px 0;
+    margin: 30px 1.5%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    border-radius: 5%;
+}
+
+.produtos li:hover{
+    border-color: rgb(151, 115, 23);
+}
+
+.produtos li:active{
+    border-color: rgb(51, 102, 0);
+}
+
+.produtos li:hover h2{
+    font-size: 40px;
 }
 
 .produtos h2{
@@ -54,4 +76,12 @@ nav a{
 .produto-preco{
     font-size: 22px;
     font-weight: bold;
+    margin-top: 10px;
+}
+
+footer{
+    text-align: center;
+    background: url("bg.jpg");
+    padding: 40px 0;
+    color: white;
 }
